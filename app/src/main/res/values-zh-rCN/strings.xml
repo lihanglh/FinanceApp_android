@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="app_name">Finance Application</string>
+
+    <string name="tab_home">首页</string>
+    <string name="tab_stock">股票</string>
+    <string name="tab_news">新闻</string>
+    <string name="tab_me">我的</string>
+
+</resources>

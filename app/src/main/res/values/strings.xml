@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Finance Application</string>
+
+    <string name="tab_home">Home</string>
+    <string name="tab_stock">Stock</string>
+    <string name="tab_news">News</string>
+    <string name="tab_mine">Mine</string>
+
+
+</resources>
