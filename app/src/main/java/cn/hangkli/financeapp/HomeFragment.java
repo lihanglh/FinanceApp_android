@@ -1,6 +1,8 @@
 package cn.hangkli.financeapp;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,7 +15,11 @@ import android.widget.TextView;
 
 public class HomeFragment extends Fragment {
 
-    WebView browser;
+    private WebView webView;
+
+    public WebView getWebView(){
+        return webView;
+    }
 
     public static HomeFragment newInstance(int index){
         Bundle bundle = new Bundle();
@@ -26,15 +32,28 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.home_fragment, container, false);
 
-        browser=(WebView)view.findViewById(R.id.home_web);
-        browser.getSettings().setJavaScriptEnabled(true);
-        browser.setWebViewClient(new WebViewClient());
-        browser.loadUrl("https://finance.sina.cn");
+        View view = inflater.inflate(R.layout.home_fragment, container, false);
+        webView=(WebView)view.findViewById(R.id.home_web);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setWebViewClient(new WebViewClient());
 
         return view;
     }
 
+    @Override
+    public void onResume() {
 
+        final String HOME_URL = "https://finance.sina.cn";
+
+
+        super.onResume();
+
+        SharedPreferences myPref = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String urlHome = myPref.getString("SETTING_URL_HOME", HOME_URL);
+
+        webView.loadUrl(urlHome);
+
+
+    }
 }
