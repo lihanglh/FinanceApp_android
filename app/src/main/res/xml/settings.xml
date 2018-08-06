@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:summary="Enter URL"
+        android:key="SETTING_URL_HOME"
+        android:defaultValue="https://finance.sina.cn"
+        android:selectAllOnFocus="true"
+        android:title="URL of Home Page" />
+
+    <EditTextPreference
+        android:summary="Enter URL"
+        android:key="SETTING_URL_STOCK_API"
+        android:defaultValue="http://192.168.1.12:8080/stock"
+        android:selectAllOnFocus="true"
+        android:title="URL of Stock API" />
+
+    <CheckBoxPreference
+        android:title="Checkbox"
+        android:defaultValue="false"
+        android:summary="True or False"
+        android:key="checkboxPref" />
+
+</PreferenceScreen>
